@@ -49,7 +49,7 @@ public class Plugin : BasePlugin
             fileBrowser.CurrentPath.Value = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
         }
 
-        [HarmonyTranspiler, HarmonyPatch(typeof(FileBrowser), "Refresh", MethodType.Async)]
+        [HarmonyTranspiler, HarmonyPatch(typeof(FileBrowser), "Refresh")]
         private static IEnumerable<CodeInstruction> Refresh_Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             foreach (CodeInstruction instruction in instructions)
